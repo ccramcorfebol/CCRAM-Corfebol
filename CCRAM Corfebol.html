@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corfebol - CCRAM Alto do Moinho</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#00529B',
+                            yellow: '#FFD100',
+                            darkBg: '#0b1329',
+                            cardBg: '#ffffff',
+                            success: '#16a34a',
+                            danger: '#dc2626'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 50% 30%, #1e3a8a 0%, #0f172a 60%, #090d16 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .btn-hover {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .fade-in {
+            animation: fadeIn 0.35s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col justify-between p-4 sm:p-6 min-h-screen">
+
+    <!-- Header identical to image reference -->
+    <header class="w-full max-w-3xl mx-auto text-center pt-4 sm:pt-8 pb-4 fade-in">
+        <div class="inline-flex items-center gap-2 bg-[#423b1c] border border-[#facc15]/40 px-3.5 py-1.5 rounded-full mb-3 text-[#facc15] text-xs font-bold uppercase tracking-wider shadow-sm">
+            <i class="fa-solid fa-trophy text-xs"></i> CCRAM
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
+            Corfebol
+        </h1>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-2xl mx-auto my-auto py-2">
+        
+        <!-- HOME SCREEN: 3 Main Navigation Buttons -->
+        <div id="home-screen" class="glass-card p-6 sm:p-10 text-center fade-in">
+            <div class="w-20 h-20 bg-blue-50/80 rounded-2xl flex items-center justify-center mx-auto mb-4 p-2 shadow-inner border border-blue-100">
+                <!-- SVG illustration matching the user image: Yellow Korfball Basket on a pole with yellow/blue ball at base -->
+                <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+                    <!-- Base floor area -->
+                    <ellipse cx="50" cy="88" rx="42" ry="8" fill="#334155" opacity="0.2"/>
+                    <path d="M 12 88 A 38 7 0 0 0 88 88" stroke="#10b981" stroke-width="2" fill="none"/>
+                    
+                    <!-- Pole Base Plate -->
+                    <polygon points="40,84 60,84 56,88 36,88" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="0.8"/>
+                    
+                    <!-- Vertical Pole -->
+                    <rect x="48" y="24" width="4" height="62" fill="#cbd5e1" rx="1"/>
+                    <rect x="49" y="24" width="1.5" height="62" fill="#ffffff" opacity="0.6"/>
+                    
+                    <!-- Yellow Basket / Korf -->
+                    <path d="M 38 12 C 38 10, 62 10, 62 12 L 58 24 C 58 25, 42 25, 42 24 Z" fill="#ffd100" stroke="#d97706" stroke-width="1.2"/>
+                    <!-- Basket grooves/texture -->
+                    <line x1="40" y1="15" x2="60" y2="15" stroke="#d97706" stroke-width="0.8"/>
+                    <line x1="41" y1="18" x2="59" y2="18" stroke="#d97706" stroke-width="0.8"/>
+                    <line x1="42" y1="21" x2="58" y2="21" stroke="#d97706" stroke-width="0.8"/>
+                    <!-- Basket Attachment -->
+                    <path d="M 48 24 L 52 24 L 50 18 Z" fill="#b45309"/>
+
+                    <!-- Korfball (Yellow and Blue) on the floor -->
+                    <g transform="translate(26, 80)">
+                        <circle cx="0" cy="0" r="7" fill="#ffd100" stroke="#1e3a8a" stroke-width="0.8"/>
+                        <!-- Blue panel patterns on ball -->
+                        <path d="M -7 0 A 7 7 0 0 1 0 -7 A 7 7 0 0 0 -7 0" fill="#00529b"/>
+                        <path d="M 0 7 A 7 7 0 0 1 7 0 A 7 7 0 0 0 0 7" fill="#00529b"/>
+                        <path d="M -4 -4 A 7 7 0 0 1 4 4" stroke="#00529b" stroke-width="1.2" fill="none"/>
+                    </g>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900 mb-2">Bem-vindo ao CCRAM Corfebol</h2>
+            <p class="text-slate-600 mb-8 text-sm sm:text-base leading-relaxed">
+                Explora a história do único desporto verdadeiramente misto do mundo, aprende as suas regras fundamentais ou testa os teus conhecimentos no nosso Quiz.
+            </p>
+
+            <!-- 3 Main Buttons -->
+            <div class="space-y-4">
+                <button onclick="showSection('history-screen')" class="btn-hover w-full p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-600 text-white flex items-center justify-center text-xl shadow">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 group-hover:text-brand-blue transition-colors">História do Corfebol</h3>
+                            <p class="text-xs text-slate-500">Origens na Holanda em 1902 e a chegada ao CCRAM</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 group-hover:text-brand-blue group-hover:translate-x-1 transition-all"></i>
+                </button>
+
+                <button onclick="showSection('rules-screen')" class="btn-hover w-full p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 flex items-center justify-between text-left group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-amber-500 text-white flex items-center justify-center text-xl shadow">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors">Regras Principais</h3>
+                            <p class="text-xs text-slate-500">As 10 normas essenciais para jogar em campo</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all"></i>
+                </button>
+
+                <button onclick="startQuiz()" class="btn-hover w-full p-4 rounded-xl bg-gradient-to-r from-blue-700 to-indigo-700 text-white flex items-center justify-between text-left shadow-lg">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-white/20 text-white flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-lg">Começar o Quiz Interativo</h3>
+                            <p class="text-xs text-blue-100">Testa o teu saber com 10 perguntas rápidas</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-circle-play text-2xl text-brand-yellow"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- HISTORY SCREEN -->
+        <div id="history-screen" class="glass-card p-6 sm:p-8 fade-in hidden">
+            <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">A História do Corfebol</h2>
+                    <p class="text-xs text-slate-500">Inclusão, cooperação e igualdade em campo</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-sm text-slate-700 leading-relaxed mb-6">
+                <p>
+                    O Corfebol foi criado em <strong>1902 na Holanda</strong> pelo professor de educação física Nico Broekhuysen. Inspirado por um jogo tradicional que conheceu na Suécia, Nico desenhou uma modalidade que permitia a rapazes e raparigas jogarem em conjunto na mesma equipa com igualdade total de oportunidades.
+                </p>
+                <p>
+                    A palavra "Korf" significa cesto em holandês. Ao longo dos anos, o desporto expandiu-se internacionalmente até chegar a Portugal em meados dos anos 80, onde cresceu com enorme dinamismo em vários clubes do país.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 text-blue-900 font-medium text-xs sm:text-sm">
+                    <i class="fa-solid fa-heart text-red-500 mr-1"></i> <strong>No CCRAM:</strong> Promovemos o Corfebol como uma modalidade acolhedora para todas as idades, focando no trabalho coletivo, no respeito mútuo e no convívio saudável.
+                </div>
+            </div>
+
+            <button onclick="showSection('home-screen')" class="btn-hover w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao Menu Principal
+            </button>
+        </div>
+
+        <!-- RULES SCREEN -->
+        <div id="rules-screen" class="glass-card p-6 sm:p-8 fade-in hidden">
+            <div class="flex items-center gap-3 mb-6 border-b pb-4 border-slate-100">
+                <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">As 10 Regras Fundamentais</h2>
+                    <p class="text-xs text-slate-500">Guia essencial de jogo do Corfebol</p>
+                </div>
+            </div>
+
+            <div class="space-y-3 max-h-80 overflow-y-auto pr-2 mb-6 text-sm">
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">1. Proibido Driblar ou Correr</strong>
+                    <p class="text-slate-600 text-xs">O jogador deve fixar o pé de apoio e passar a bola com rapidez aos colegas.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">2. Marcação por Género</strong>
+                    <p class="text-slate-600 text-xs">Homem defende homem e mulher defende mulher, garantindo duelos equilibrados.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">3. Regra do "Defendido"</strong>
+                    <p class="text-slate-600 text-xs">Não é permitido lançar ao cesto se o defensor estiver a um braço de distância, de frente e de braço levantado.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">4. Composição das Equipas</strong>
+                    <p class="text-slate-600 text-xs">Cada equipa alinha com 8 elementos em campo (4 homens e 4 mulheres) divididos por duas zonas.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">5. Troca de Zonas</strong>
+                    <p class="text-slate-600 text-xs">Sempre que são assinalados 2 golos na partida, atacantes e defensores trocam de funções em campo.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">6. Relógio de Lançamento</strong>
+                    <p class="text-slate-600 text-xs">A equipa ofensiva dispõe de 25 segundos para efetuar uma tentativa de lançamento ao cesto.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">7. Ausência de Contacto Físico</strong>
+                    <p class="text-slate-600 text-xs">É proibido agarrar, empurrar ou fazer bloqueios físicos.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">8. Grande Penalidade</strong>
+                    <p class="text-slate-600 text-xs">Faltas que perturbam ilegalmente uma oportunidade clara de golo são punidas com lançamento direto da marca de penálti.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">9. Jogo 360 Graus</strong>
+                    <p class="text-slate-600 text-xs">O poste do cesto situa-se no interior do terreno de jogo, permitindo jogadas por trás do poste.</p>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <strong class="text-brand-blue block mb-0.5">10. Altura do Cesto</strong>
+                    <p class="text-slate-600 text-xs">O cesto de corfebol está posicionado a 3,50 metros de altura.</p>
+                </div>
+            </div>
+
+            <button onclick="showSection('home-screen')" class="btn-hover w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-sm flex items-center justify-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao Menu Principal
+            </button>
+        </div>
+
+        <!-- QUIZ SCREEN (Identical layout to provided image) -->
+        <div id="quiz-screen" class="glass-card p-6 sm:p-8 fade-in hidden">
+            <!-- Progress & Score Header matching layout -->
+            <div class="flex justify-between items-center mb-3 text-sm font-semibold text-slate-600">
+                <span id="question-tracker">Pergunta 1 de 10</span>
+                <span id="score-tracker" class="text-brand-blue font-bold">Pontuação: 0</span>
+            </div>
+            
+            <!-- Blue progress bar -->
+            <div class="w-full bg-slate-100 h-2.5 rounded-full mb-6 overflow-hidden">
+                <div id="progress-bar" class="bg-brand-blue h-full w-1/10 transition-all duration-300"></div>
+            </div>
+
+            <!-- Question Title -->
+            <h2 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 mb-6 leading-snug">
+                <!-- Dynamically loaded -->
+            </h2>
+
+            <!-- Answer Options -->
+            <div id="options-container" class="space-y-3 mb-6">
+                <!-- Dynamically loaded -->
+            </div>
+
+            <!-- Feedback Box -->
+            <div id="feedback-box" class="hidden p-4 rounded-xl mb-6 text-sm leading-relaxed fade-in">
+                <div id="feedback-title" class="font-bold flex items-center gap-2 mb-1 text-base"></div>
+                <div id="feedback-text" class="text-slate-700"></div>
+            </div>
+
+            <!-- Next Question Button -->
+            <button id="next-btn" onclick="nextQuestion()" class="hidden btn-hover w-full py-3.5 bg-brand-blue hover:bg-blue-700 text-white font-bold rounded-xl text-base shadow-md flex items-center justify-center gap-2">
+                <span>Próxima Pergunta</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- RESULT SCREEN -->
+        <div id="result-screen" class="glass-card p-6 sm:p-8 fade-in hidden">
+            <div class="text-center mb-6">
+                <div id="result-icon" class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-3xl"></div>
+                <h2 id="result-title" class="text-2xl font-extrabold text-slate-900 mb-1"></h2>
+                <p id="result-subtitle" class="text-slate-600 text-sm font-medium"></p>
+                <div class="inline-block bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-xl mt-3 text-slate-800 font-bold text-base">
+                    Pontuação Final: <span id="final-score" class="text-brand-blue">0</span>/10
+                </div>
+            </div>
+
+            <!-- CCRAM Training & Socials Card -->
+            <div class="bg-slate-900 text-white rounded-xl p-5 mb-6 shadow-xl border border-slate-800">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="bg-brand-yellow text-slate-900 p-2 rounded-lg font-bold">
+                        <i class="fa-solid fa-users text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-white">Vem Jogar no CCRAM!</h3>
+                        <p class="text-slate-400 text-xs">Corfebol no Alto do Moinho</p>
+                    </div>
+                </div>
+
+                <!-- Schedule Section -->
+                <div class="space-y-2.5 mb-5 bg-slate-800/90 p-3.5 rounded-lg text-xs border border-slate-700/80">
+                    <h4 class="text-brand-yellow font-bold text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                        <i class="fa-regular fa-calendar-days"></i> Horários dos Treinos
+                    </h4>
+                    
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-700/60 pb-2 gap-1">
+                        <div>
+                            <span class="font-bold text-white block">Terça-feira</span>
+                            <span class="text-slate-300">Pavilhão ES Manuel Cargaleiro</span>
+                        </div>
+                        <span class="bg-brand-blue/30 text-blue-300 px-2 py-0.5 rounded font-mono font-semibold self-start sm:self-auto">20h00 - 22h00</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-1 gap-1">
+                        <div>
+                            <span class="font-bold text-white block">Quinta-feira</span>
+                            <span class="text-slate-300">Pavilhão Municipal do Alto do Moinho</span>
+                        </div>
+                        <span class="bg-brand-blue/30 text-blue-300 px-2 py-0.5 rounded font-mono font-semibold self-start sm:self-auto">22h00 - 23h30</span>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="space-y-2">
+                    <a href="https://www.instagram.com/corfebolaltomoinho/" target="_blank" rel="noopener noreferrer" class="btn-hover flex items-center justify-between bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white font-bold p-2.5 rounded-lg text-xs">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-brands fa-instagram text-base"></i> @corfebolaltomoinho
+                        </span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/@ccramcorfebol" target="_blank" rel="noopener noreferrer" class="btn-hover flex items-center justify-between bg-red-600 hover:bg-red-700 text-white font-bold p-2.5 rounded-lg text-xs">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-brands fa-youtube text-base"></i> @ccramcorfebol
+                        </span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="startQuiz()" class="btn-hover w-full py-3 bg-brand-blue text-white font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow">
+                    <i class="fa-solid fa-rotate-right"></i> Repetir Quiz
+                </button>
+                <button onclick="showSection('home-screen')" class="btn-hover w-full py-3 bg-slate-200 text-slate-800 font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-house"></i> Menu Principal
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer matching image layout -->
+    <footer class="w-full max-w-3xl mx-auto text-center text-slate-400 text-xs py-4">
+        <p>Corfebol CCRAM &copy; 2026. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Web Audio API for sound effects
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.15);
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            } else if (type === 'wrong') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(220, now);
+                osc.frequency.exponentialRampToValueAtTime(164.81, now + 0.2);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            } else if (type === 'win') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, now);
+                osc.frequency.setValueAtTime(554.37, now + 0.1);
+                osc.frequency.setValueAtTime(659.25, now + 0.2);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                osc.start(now);
+                osc.stop(now + 0.5);
+            }
+        }
+
+        // Quiz Questions Data (10 Questions, strict PT-PT, using pé de apoio, no vigora or free training mentions)
+        const quizData = [
+            {
+                question: "O que podes fazer com a bola na mão durante uma jogada de Corfebol?",
+                options: [
+                    "Podes correr diretamente para o cesto enquanto driblas a bola.",
+                    "Não podes driblar nem correr, apenas podes rodar no pé de apoio e passar a bola.",
+                    "Podes dar até três passos antes de decidir passar ou lançar."
+                ],
+                correct: 1,
+                explanation: "No Corfebol é proibido driblar ou correr com a bola na mão, o jogador deve fixar o seu pé de apoio e passar a bola com agilidade."
+            },
+            {
+                question: "Como funciona a marcação defensiva individual no Corfebol?",
+                options: [
+                    "Qualquer jogador pode defender o adversário mais próximo do cesto.",
+                    "Homem defende homem e mulher defende mulher, com marcação do mesmo género.",
+                    "Dois defensores podem pressionar o mesmo atacante em simultâneo."
+                ],
+                correct: 1,
+                explanation: "Como desporto misto e igualitário, o duelo direto é efetuado entre atletas do mesmo género para assegurar o equilíbrio em jogo."
+            },
+            {
+                question: "O que acontece se tentares lançar ao cesto estando na posição de 'Defendido'?",
+                options: [
+                    "É considerada falta e perdes a posse de bola para a equipa adversária.",
+                    "O lançamento é válido e se marcares golo vale o dobro dos pontos.",
+                    "O jogo prossegue normalmente sem qualquer sanção."
+                ],
+                correct: 0,
+                explanation: "Estar 'defendido' significa ter o defensor do mesmo género a um braço de distância, de frente e de braço levantado, o que inviabiliza o arremesso direto."
+            },
+            {
+                question: "Quantos elementos jogam em campo por cada equipa no Corfebol?",
+                options: [
+                    "5 jogadores sem qualquer restrição de género.",
+                    "8 jogadores (4 homens e 4 mulheres), divididos entre a zona de Ataque e a zona de Defesa.",
+                    "6 jogadores no total, sendo 3 homens e 3 mulheres."
+                ],
+                correct: 1,
+                explanation: "Cada equipa joga com 8 atletas em campo, alinhando 2 homens e 2 mulheres na zona ofensiva e igual número na zona defensiva."
+            },
+            {
+                question: "Quando é que as equipas trocam as funções da zona de Ataque para a zona de Defesa?",
+                options: [
+                    "Apenas quando se atinge o intervalo da partida.",
+                    "De 10 em 10 minutos de jogo corrido.",
+                    "Sempre que são assinalados 2 golos na partida."
+                ],
+                correct: 2,
+                explanation: "Sempre que são assinalados 2 golos na partida, os atacantes passam a ser defensores e os defensores assumem o ataque."
+            },
+            {
+                question: "Quanto tempo tem uma equipa para tentar o lançamento ao cesto (relógio de shot clock)?",
+                options: [
+                    "Possui 25 segundos para a bola tocar no cesto ou entrar.",
+                    "Pode manter a posse de bola sem qualquer limite de tempo.",
+                    "Tem no máximo 60 segundos por cada jogada ofensiva."
+                ],
+                correct: 0,
+                explanation: "Nas competições oficiais é aplicado o relógio de 25 segundos, o que torna as jogadas muito rápidas e dinâmicas."
+            },
+            {
+                question: "O que acontece se um jogador fizer contacto físico faltoso impedindo o movimento do adversário?",
+                options: [
+                    "É assinalada falta e, conforme a gravidade e zona, pode originar Grande Penalidade ou Lançamento Livre.",
+                    "O jogador é imediatamente expulso durante todo o jogo.",
+                    "O contacto físico é permitido sem restrições."
+                ],
+                correct: 0,
+                explanation: "O Corfebol é um desporto sem contacto físico violento, onde a agilidade e a tática sobrepõem-se à força."
+            },
+            {
+                question: "Quando é assinalada uma Grande Penalidade (penálti) no Corfebol?",
+                options: [
+                    "Quando a equipa defensora comete uma infração que corta uma oportunidade clara de golo.",
+                    "Sempre que a bola sai pelas linhas laterais do campo.",
+                    "Apenas quando o treinador pede um tempo morto."
+                ],
+                correct: 0,
+                explanation: "A grande penalidade é marcada quando uma falta de defesa impede diretamente uma ocasião clara de golo do atacante."
+            },
+            {
+                question: "Onde se encontra posicionado o cesto no campo de Corfebol?",
+                options: [
+                    "Está colocado exatamente sobre a linha final do fundo do campo.",
+                    "Está posicionado no interior do campo, a 6,67 metros da linha de fundo, permitindo jogar por trás do cesto.",
+                    "Está suspenso na parede do pavilhão como no basquetebol."
+                ],
+                correct: 1,
+                explanation: "O cesto situa-se no interior do terreno de jogo, permitindo aos atacantes circularem a toda a volta do poste em 360 graus."
+            },
+            {
+                question: "Qual é a altura regulamentar do cesto (Korf) no Corfebol adulto?",
+                options: [
+                    "3,05 metros de altura.",
+                    "3,50 metros de altura.",
+                    "2,80 metros de altura."
+                ],
+                correct: 1,
+                explanation: "O cesto situa-se a 3,50 metros de altura no topo de um poste vertical."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function showSection(sectionId) {
+            const sections = ['home-screen', 'history-screen', 'rules-screen', 'quiz-screen', 'result-screen'];
+            sections.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function startQuiz() {
+            showSection('quiz-screen');
+            currentQuestion = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            answered = false;
+            const data = quizData[currentQuestion];
+            
+            // Trackers
+            document.getElementById('question-tracker').innerText = `Pergunta ${currentQuestion + 1} de ${quizData.length}`;
+            document.getElementById('score-tracker').innerText = `Pontuação: ${score}`;
+            document.getElementById('progress-bar').style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+
+            // Question Text
+            document.getElementById('question-text').innerText = data.question;
+
+            // Clear and Load Options
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            data.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3.5 sm:p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 font-medium text-slate-800 transition-all flex items-start gap-3 btn-hover";
+                btn.onclick = () => selectOption(idx);
+                btn.innerHTML = `
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+                    <span class="text-xs sm:text-sm leading-snug">${opt}</span>
+                `;
+                container.appendChild(btn);
+            });
+
+            // Hide feedback and next button
+            document.getElementById('feedback-box').className = "hidden p-4 rounded-xl mb-6 text-sm leading-relaxed fade-in";
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectOption(selectedIdx) {
+            if (answered) return;
+            answered = true;
+
+            const data = quizData[currentQuestion];
+            const options = document.getElementById('options-container').children;
+            const isCorrect = selectedIdx === data.correct;
+
+            if (isCorrect) {
+                score++;
+                playSound('correct');
+                document.getElementById('score-tracker').innerText = `Pontuação: ${score}`;
+            } else {
+                playSound('wrong');
+            }
+
+            // Highlight Options
+            for (let i = 0; i < options.length; i++) {
+                const btn = options[i];
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-slate-100', 'btn-hover');
+
+                if (i === data.correct) {
+                    btn.className = "w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-brand-success bg-emerald-50 font-semibold text-emerald-900 flex items-start gap-3";
+                } else if (i === selectedIdx && !isCorrect) {
+                    btn.className = "w-full text-left p-3.5 sm:p-4 rounded-xl border-2 border-brand-danger bg-red-50 font-semibold text-red-900 flex items-start gap-3";
+                } else {
+                    btn.className = "w-full text-left p-3.5 sm:p-4 rounded-xl border border-slate-200 bg-slate-50 opacity-50 text-slate-600 flex items-start gap-3";
+                }
+            }
+
+            // Show Feedback
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackText = document.getElementById('feedback-text');
+
+            if (isCorrect) {
+                feedbackBox.className = "p-4 rounded-xl mb-6 text-xs sm:text-sm leading-relaxed bg-emerald-100 border border-emerald-300 text-emerald-900 fade-in";
+                feedbackTitle.innerHTML = `<i class="fa-solid fa-circle-check text-brand-success"></i> Resposta correta!`;
+            } else {
+                feedbackBox.className = "p-4 rounded-xl mb-6 text-xs sm:text-sm leading-relaxed bg-red-100 border border-red-300 text-red-900 fade-in";
+                feedbackTitle.innerHTML = `<i class="fa-solid fa-circle-xmark text-brand-danger"></i> Resposta incorreta, a opção certa é a ${String.fromCharCode(65 + data.correct)}.`;
+            }
+
+            feedbackText.innerText = data.explanation;
+            feedbackBox.classList.remove('hidden');
+
+            // Show Next Button
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.querySelector('span').innerText = "Ver Resultado Final";
+            } else {
+                nextBtn.querySelector('span').innerText = "Próxima Pergunta";
+            }
+            nextBtn.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            showSection('result-screen');
+            document.getElementById('final-score').innerText = score;
+            playSound('win');
+
+            const iconEl = document.getElementById('result-icon');
+            const titleEl = document.getElementById('result-title');
+            const subtitleEl = document.getElementById('result-subtitle');
+
+            if (score >= 9) {
+                iconEl.className = "w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl bg-emerald-100 text-brand-success";
+                iconEl.innerHTML = `<i class="fa-solid fa-crown"></i>`;
+                titleEl.innerText = "Mestre do Corfebol!";
+                subtitleEl.innerText = "Excelente, dominas todas as regras oficiais com distinção!";
+            } else if (score >= 6) {
+                iconEl.className = "w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl bg-blue-100 text-brand-blue";
+                iconEl.innerHTML = `<i class="fa-solid fa-star"></i>`;
+                titleEl.innerText = "Pronto para Entrar em Campo!";
+                subtitleEl.innerText = "Muito bem, conheces as regras essenciais para brilhar no jogo!";
+            } else {
+                iconEl.className = "w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl bg-amber-100 text-amber-600";
+                iconEl.innerHTML = `<i class="fa-solid fa-graduation-cap"></i>`;
+                titleEl.innerText = "Futuro Atleta!";
+                subtitleEl.innerText = "Bom esforço, o melhor local para aprender na prática é nos nossos treinos!";
+            }
+        }
+    </script>
+</body>
+</html>
